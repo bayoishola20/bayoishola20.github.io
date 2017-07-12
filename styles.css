@@ -1,0 +1,16 @@
+body {
+    font-family: 'Bellefair', serif;
+    font-size: 20px;
+    min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pic{
+	height: 250%;
+	width: 40%;
+	align-content: center;
+	margin: auto;
+	display: block;
+}
