@@ -12,7 +12,9 @@
         <link href="styles.css" rel="stylesheet">
         <link href="assets/icon.png" rel="icon">
         <link href="https://fonts.googleapis.com/css?family=Baloo|Inknut+Antiqua" rel="stylesheet">
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet'>
 
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
         <title>bayoishola20</title>
     </head>
     <body>
@@ -21,7 +23,16 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div class="card">
-                        <img class="card-img-top img-responsive rounded-circle pic" src="/assets/bayo.svg" alt="bayoishola20">
+                        <div class="flip-container">
+                        <div class="flip">
+                            <div class="back">
+                                <img class="card-img-top img-responsive rounded-circle pic" src="/assets/bayo.svg" alt="bayoishola20">
+                            </div>
+                            <div class="front">
+                                <img class="card-img-top img-responsive rounded-circle pic" src="/assets/bayo1.jpg" alt="bayoishola20">
+                            </div>
+                        </div>
+                        </div>
                         <div class="card-block text-center">
                         <h4 class="card-title text-center">DE-BEE &nbsp; <sup class="text-right text-success"><i class="fa fa-check-square" aria-hidden="true"></i></sup></h4>
                         ... GIS | Front-End | Data Science | Remote Sensing ...
@@ -30,9 +41,80 @@
                 </div>
                 <div class="col-md-2"></div>
             </div>
+
+            <br>
+
+<!--             <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-title text-center"> LANGUAGES </div>
+
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div> -->
+
+            <br>
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <br>
+                        <h2 class="card-title text-center"> Find Me! </h2>
+                        <div id='map'></div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+
         </div>
+
 
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYmF5byIsImEiOiJjajUxdXprOW8wOHA5MnFzOWFrb2p6dnI2In0.QrawfOQhKVOYxWGrsoT3hg';
+            var map = new mapboxgl.Map({
+                container: 'map', // container id
+                style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
+                center: [8.884149, 9.907907], // starting position
+                zoom: 15, // starting zoom
+                title: 'location'
+            });
+
+            map.on('load', () => {
+            map.loadImage('/assets/location.png', (error, image) => {
+                if (error) throw error;
+                map.addImage('cat', image);
+                map.addLayer({
+                    "id": "points",
+                    "type": "symbol",
+                    "source": {
+                        "type": "geojson",
+                        "data": {
+                            "type": "FeatureCollection",
+                            "features": [{
+                                "type": "Feature",
+                                "geometry": {
+                                    "type": "Point",
+                                    "coordinates": [8.884149, 9.907907]
+                                }
+                            }]
+                        }
+                    },
+                    "layout": {
+                        "icon-image": "cat",
+                        "icon-size": 0.25
+                    }
+                });
+            });
+        });
+
+
+        </script>
     </body>
 </html>
