@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/style.css">
+    <title> Currency Converter </title>
+</head>
+<body>
+    <section class="hero hero-body is-primary heading container-fluid has-text-centered">
+        <h1 class="title">Free Currency Converter</h1>
+        <h2 class="subtitle is-small">QuickConvert</h2>
+    </section>
+
+    <br>
+
+    <div class="container" style="display: flex; justify-content:center;">
+        <nav class="panel">
+            <p class="panel-heading">
+                Convert currency
+            </p>
+
+            <div class="panel-block">
+                <form id="zip">
+                    <div class="field">
+                        <!-- from -->
+                        <div class="field is-horizontal">
+                            <div class="field-label is-large">
+                                <label class="label">From</label>
+                            </div>
+                            <div class="field-body">
+                               <div class="field">
+                                  <p class="control is-expanded has-icons-left">
+                                    <input class="input is-rounded is-large is-primary" type="text" placeholder="Enter value" name="from" id="id">
+                                    <span class="icon is-small is-left"><i class="fa fa-money"></i></span>
+                                  </p>
+                               </div>
+                               <div class="field is-narrow">
+                                  <p class="control">
+                                     <span class="select is-large has-icons-left">
+                                        <select name="status" id="status">
+                                           <option value="">Status:</option>
+                                           <option value="active">active</option>
+                                           <option value="pause">pause</option>
+                                        </select>
+                                     </span>
+                                  </p>
+                               </div>
+                            </div>
+                        </div>
+
+
+                        <!--To -->
+                        <div class="field is-horizontal">
+                            <div class="field-label is-large">
+                                <label class="label">To</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <p class="control is-expanded has-icons-left">
+                                    <input class="input is-rounded is-large is-primary" type="text" placeholder="Enter value" name="from" id="id">
+                                    <span class="icon is-small is-left"><i class="fa fa-money"></i></span>
+                                    </p>
+                                </div>
+                                <div class="field is-narrow">
+                                    <p class="control">
+                                        <span class="select is-large has-icons-left">
+                                        <select name="status" id="status">
+                                            <option value="">Status:</option>
+                                            <option value="active">active</option>
+                                            <option value="pause">pause</option>
+                                        </select>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <!-- convert -->
+                        <div class="field is-horizontal has-text-centered" style="margin:0 auto; display:block;">
+                            <button class="button is-primary">
+                                Quick Convert
+                            </button>
+                        </div>
+                        
+                    </div>
+                </form> 
+            </div>
+        </nav>
+    </div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="/assets/script.js"></script>
+</body>
+
+</html>
