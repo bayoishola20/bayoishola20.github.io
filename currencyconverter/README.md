@@ -18,7 +18,7 @@ See documentation here: https://www.currencyconverterapi.com/docs
 
 &rarr; Available for both online and offline (Service Worker, Cache API, IndexedDB)
 
-![Preview](https://github.com/bayoishola20/zipcode/blob/master/assets/img/currencyconverter_bayoishola20.png "Preview")
+![Preview](https://github.com/bayoishola20/bayoishola20.github.io/blob/master/currencyconverter/assets/img/bayoishola20currencyConverter.png "Preview")
 
 [bayoishola20](https://github.com/bayoishola20/)
 
