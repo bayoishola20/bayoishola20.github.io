@@ -44,7 +44,7 @@ class CurrencyConverter {
            // return tx.complete;
 
             store.index('id').openCursor(null, "prev").then(cursor => {
-                return cursor.advance(100);
+                return cursor.advance(200);
             }).then(function deleteRest(cursor) {
                 if (!cursor) return;
                 cursor.delete();
@@ -52,10 +52,10 @@ class CurrencyConverter {
             });
         }).then(() => {
             console.log('Currencies added to indexDB');
-         }).catch(error => console.log('Something went wrong: '+ error));
+         }).catch(err => console.log(`Something went wrong: ${err}`));
     }
 
-    addCurrencyRateToCache(rate, fromCurrency, toCurrency) {
+    addRateToCache(rate, fromCurrency, toCurrency) {
         this.dbPromise.then(db => {
             if (!db) return;
             
@@ -67,7 +67,7 @@ class CurrencyConverter {
 
 
            store.index('query').openCursor(null, "prev").then(cursor => {
-                return cursor.advance(100);
+                return cursor.advance(200);
             }).then(function deleteRest(cursor){
                 if (!cursor) return;
                 cursor.delete();
@@ -78,7 +78,7 @@ class CurrencyConverter {
          }).catch(err => console.log(`Oops! ${err}`));
     }
 
-    getCurrencyRateFromCache(fromCurrency, toCurrency) {
+    getRateFromCache(fromCurrency, toCurrency) {
        return this.dbPromise.then(db => {
             if (!db) return;
 
@@ -112,20 +112,17 @@ class CurrencyConverter {
 
                 for(let currency of currencies){
                     let option = this.createElement('option');
-                    if(currency.hasOwnProperty('currencySymbol')) option.text = `${currency.currencyName} (${currency.currencySymbol})`;
+                    if(currency.hasOwnProperty('currencySymbol')) option.text = `${currency.currencyName} ${currency.currencySymbol}`;
                     else option.text = `${currency.currencyName} (${currency.id})`;
                     option.value = currency.id;
 
                     this.appendElement(selectFields,option);
                 }
-                this.postToHTMLPage('msg', 'Offline, no internet connection');
+                this.postToHTMLPage('msg', 'Offline, no internet connection detected!');
             });
           });
     }
-    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-     method that fetches the list of available currencies from the api online
-    */
+    
     getAllCurrencies() {
         fetch('https://free.currencyconverterapi.com/api/v5/currencies').then(response => {
             return response.json();
@@ -154,11 +151,12 @@ class CurrencyConverter {
     }
 
 
-    postToHTMLPage(wht, msg, outputResult = {}) {
-       if(wht === 'result') {
-            document.getElementById('result').innerHTML = `${outputResult.toCurrency} ${outputResult.result.toFixed(2)}`;
+    postToHTMLPage(ans, msg, outputResult = {}) {
+        if(ans === 'result') {
+            document.getElementById('result').value = `${outputResult.result.toFixed(2)}`;
         }
-        else if(wht = 'offlineFailure') {
+
+        if(ans = 'offline') {
             document.getElementById('result').innerHTML = '0.00';
         }
 
@@ -182,7 +180,7 @@ class CurrencyConverter {
             return  {currencyRate, appStatus: 'online'};
         }).catch(error => {
 
-            const currencyRate = this.getCurrencyRateFromCache(fromCurrency, toCurrency);
+            const currencyRate = this.getRateFromCache(fromCurrency, toCurrency);
             return  currencyRate;
         });
     }
@@ -199,29 +197,26 @@ class CurrencyConverter {
        parentElement[1].appendChild(element2);
        return;
    }
-} // end class
-
-
-
+}
 
 
 (function(){
     const converter = new CurrencyConverter();
 
-    // add event listener to the convertion button in the index page
+
     document.getElementById('quickConvert').addEventListener('click', () =>{
         let msg = '';
          converter.postToHTMLPage('msg', 'Getting exchange rate...');
-        // get form fields
+
         const amount = document.getElementById('from_amount').value;
         const fromCurrency = document.getElementById('from_currency').value;
         const toCurrency = document.getElementById('to_currency').value;
     
-        // validations
+
         if(amount === '' || amount === 0 || isNaN(amount)) msg = `Kindly insert numbers greater than ${amount}.`;
-        else if(fromCurrency ==='') msg = 'Kindly select initial currency';
-        else if(toCurrency ==='') msg = 'Kindly select destination currency';
-        else if (fromCurrency === toCurrency) msg = 'Same currency conversion is not valid';
+        if(fromCurrency ==='') msg = 'Kindly select initial currency';
+        if(toCurrency ==='') msg = 'Kindly select destination currency';
+        if (fromCurrency === toCurrency) msg = 'Same currency conversion is not valid';
         else {
             converter.getConversionRate(fromCurrency,toCurrency).then( response =>{ 
                  const rate = response.currencyRate;
@@ -230,16 +225,15 @@ class CurrencyConverter {
                 {
                     const result = amount * rate;
                 
-                    // set conversion rate msg.
-                    msg = `Current exchange rate is ${rate}`
+                    msg = `Current exchange rate is ${rate.toFixed(5)}`
                     converter.postToHTMLPage('result', msg, {result, toCurrency});
 
 
-                    if(appStatus ==='online')  converter.addCurrencyRateToCache(rate, fromCurrency, toCurrency); 
+                    if(appStatus ==='online')  converter.addRateToCache(rate, fromCurrency, toCurrency); 
                 }
-                else converter.postToHTMLPage('offlineFailure', 'You are offline. Kindly connect to the internet');
+                else converter.postToHTMLPage('offline', 'You are offline!');
             }).catch( err => {
-                console.log('No rate was found in the cache: ');
+                console.log(`Exchange rate not found in indexDB: ${err}`);
                 converter.postToHTMLPage('', err);
             });
         }

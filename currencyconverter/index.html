@@ -13,7 +13,9 @@
 </head>
 <body>
     <section class="hero hero-body is-primary container-fluid has-text-centered">
-        <h1 class="title">Free Currency Converter</h1>
+        <h1 class="title">
+            Currency Converter <sup class="fa fas" id="money"></sup>
+        </h1>
     </section>
     <section style="background-color:aquamarine; padding-top: 50px; margin-top: -10px;">
         <h2 class=""></h2>
@@ -33,7 +35,7 @@
                     <div class="field">
                         <!-- from -->
                         <div class="field is-horizontal">
-                            <div class="field-label is-large">
+                            <div class="field-label is-medium">
                                 <label class="label" for="from_currency">From</label>
                             </div>
                             <div class="field-body">
@@ -43,11 +45,11 @@
                                     <span class="icon is-small is-left"><i class="fa fa-money"></i></span>
                                   </p>
                                </div>
-                               <div class="field is-narrow">
+                               <div class="field is-narrow" style="margin-top: 10px;">
                                   <p class="control">
                                      <span class="select is-normal has-icons-left">
                                         <select name="currency" class="currency" id="from_currency">
-                                           <option value="" selected>Select</option>
+                                           <option value="" selected> Choose Currency </option>
                                         </select>
                                      </span>
                                   </p>
@@ -58,21 +60,21 @@
 
                         <!--To -->
                         <div class="field is-horizontal">
-                            <div class="field-label is-large">
+                            <div class="field-label is-medium">
                                 <label class="label" for="result">To</label>
                             </div>
                             <div class="field-body">
                                 <div class="field">
                                     <p class="control is-expanded has-icons-left">
-                                    <input readonly class="input is-rounded is-large is-primary result" type="number" placeholder="0.00" name="result" id="result">
+                                    <input readonly class="input is-rounded is-large is-primary result" placeholder="0.00" name="result" id="result">
                                     <span class="icon is-small is-left"><i class="fa fa-money"></i></span>
                                     </p>
                                 </div>
-                                <div class="field is-narrow">
+                                <div class="field is-narrow" style="margin-top: 10px;">
                                     <p class="control">
                                         <span class="select is-normal has-icons-left">
                                         <select name="currency" class="currency" id="to_currency">
-                                            <option value="" selected> Select</option>
+                                            <option value="" selected> Choose Currency </option>
                                         </select>
                                         </span>
                                     </p>
@@ -97,6 +99,7 @@
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="assets/scripts/script.js"></script>
 <script src="assets/scripts/idb.js"></script>
 <script src="assets/scripts/appcontroller.js"></script>
 </body>
