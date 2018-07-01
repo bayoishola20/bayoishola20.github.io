@@ -1,19 +1,24 @@
 # Free currency converter
 
-An application using http://api.zippopotam.us/ to get zip  codes.
+Run application here &rarr; https://bayoishola20.github.io/currencyconverter/
+
+An application using https://free.currencyconverterapi.com/ to get currency exchange.
+
+See documentation here: https://www.currencyconverterapi.com/docs
 
 ## To use
 
-* Clone the repo: `git clone `
+* Clone the repo: `git clone https://github.com/bayoishola20/bayoishola20.github.io/tree/master/currencyconverter`
 
-* Test here &rarr;
+* Select "From" and "To" currencies
 
-* Type in a US zip code and get details.
-* I should increase search beyond US soon.
+* Enter value to convert.
 
-&rightarrow; Requests are made using the Fetch API
+&rarr; Requests are made using the Fetch API
 
-![Preview](https://github.com/bayoishola20/zipcode/blob/master/assets/img/zipcode_bayoishola20.png "Preview")
+&rarr; Available for both online and offline (Service Worker, Cache API, IndexedDB)
+
+![Preview](https://github.com/bayoishola20/zipcode/blob/master/assets/img/currencyconverter_bayoishola20.png "Preview")
 
 [bayoishola20](https://github.com/bayoishola20/)
 

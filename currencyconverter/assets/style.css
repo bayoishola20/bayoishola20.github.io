@@ -1,7 +1,3 @@
-.heading {
-    padding: 20px;
-}
-
 .panel-heading {
     background-color: hsl(171, 100%, 41%);
     border-radius: 3px 3px 0 0;
@@ -10,4 +6,10 @@
     font-weight: 300;
     line-height: 1.25;
     padding: .5em .75em;
+}
+
+#alert {
+    text-align: center;
+    margin-bottom: 10px;
+    color: lightgray;
 }
