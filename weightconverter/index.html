@@ -1,0 +1,104 @@
+<!doctype html>
+<html class="no-js" lang="eng">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Converter</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bellefair|Spectral" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="icon" href="assets/img/icon.png">
+    </head>
+    <body>
+
+        <div class="container">
+        	<div class="row">
+        		<div class="col-md-10 offset-md-1">
+                    <p class="text-center"><i class="fa fa-balance-scale" aria-hidden="true"></i></p>
+        			<h1 class="display-4 text-center">Converter</h1>
+        			<form>
+        				<fieldset class="form-group">
+        					<input type="number" id="toConvert" class="form-control form-control-lg">
+        				</fieldset>
+        			</form>
+        			<form>
+        				<div class="form-group row">
+        					<div class="offset-md-3 col-md-6">
+        						<label>Select unit to convert from: </label>
+        						<div class="radio form-check-inline">
+        							<label>
+        								<input type="radio" name="gridRadios" id="gRadio" value="grams" onclick="converter()">
+        								g
+        							</label>
+        						</div>
+        						<div class="radio form-check-inline">
+        							<label>
+        								<input type="radio" name="gridRadios" id="kgRadio" value="kilograms" onclick="converter()">
+        								kg
+        							</label>
+        						</div>
+        						<div class="radio form-check-inline">
+        							<label>
+        								<input type="radio" name="gridRadios" id="ozRadio" value="ounces" onclick="converter()">
+        								Oz
+        							</label>
+        						</div>
+        						<div class="radio form-check-inline">
+        							<label>
+        								<input type="radio" name="gridRadios" id="lbsRadio" value="pounds" onclick="converter()" checked="true">
+        								lbs
+        							</label>
+        						</div>
+        					</div>
+        				</div>
+        			</form>
+
+        			<div id="result">
+        				<div class="card card-warning">
+        					<div class="card-block">
+	        					<div><h2 id="gramsResult" class="text-lg-center"></h2></div>
+	        					<h5 class="text-right text-white">Grams</h5>
+        					</div>
+        				</div>
+        				<br>
+        				<div class="card card-primary">
+        					<div class="card-block">
+	        					<div><h2 id="kgResult" class="text-lg-center"></h2></div>
+	        					<h5 class="text-right text-white">kilograms</h5>
+        					</div>
+        				</div>
+        				<br>
+        				<div class="card card-success">
+        					<div class="card-block">
+	        					<div><h2 id="ounceResult" class="text-lg-center"></h2></div>
+	        					<h5 class="text-right text-white">Ounces</h5>
+        					</div>
+        				</div>
+        				<br>
+        				<div class="card card-danger">
+        					<div class="card-block">
+	        					<div><h2 id="poundsResult" class="text-lg-center"></h2></div>
+	        					<h5 class="text-right text-white">Pounds</h5>
+        					</div>
+        				</div>
+        				<br>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>

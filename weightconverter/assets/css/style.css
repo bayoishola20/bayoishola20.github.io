@@ -1,0 +1,19 @@
+body {
+	background-color: lightyellow;
+	font-family: 'Spectral';
+	margin-top: 30px;
+	min-height: 300%;
+}
+
+.card {
+	border-radius: 0px;
+}
+
+.card-block {
+	width: 100%;
+}
+
+input {
+	font-family: 'Spectral';
+	font-size: 100%;
+}
