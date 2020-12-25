@@ -1,0 +1,125 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Bad Script', cursive;
+    background-color: #E5E5E5;
+}
+
+.content {
+    /* min-height: 100vh; */
+    font-family: 'Quicksand', sans-serif;
+}
+
+.tracking-tight {
+    color: whitesmoke;
+}
+
+.custom-bg {
+    background-color: #565656;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    border-bottom-color: #444444;
+    border-bottom-width: 0.11rem;
+}
+
+.bg-gray-900 {
+    background-color: #565656 !important;
+}
+
+nav,
+.title {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.nav-right {
+    float: right;
+}
+
+.bayo-pic,
+.bayo-icon {
+    filter: grayscale(100%);
+}
+
+.img-div {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.hero-text {
+    text-transform: capitalize;
+    /* text-align: center; */
+    line-height: 2.3em;
+}
+
+.hero-line {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 5%;
+    border-color: #444444;
+}
+
+#card-more {
+    background-color: #565656;
+}
+
+#card-more:hover {
+    background-color: #3d3d3d;
+}
+
+.fa-plus-circle {
+    font-size: 5em;
+}
+
+.hidePortfolio {
+    visibility: hidden;
+}
+
+.itemPortfolio:hover+.hidePortfolio {
+    visibility: visible;
+    color: whitesmoke;
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+}
+
+.sections {
+    background-color: #565656;
+    color: #fff;
+}
+
+#skills {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.copyright {
+    font-family: 'Quicksand', sans-serif;
+    text-transform: capitalize;
+    /* color: #323232; */
+}
+
+
+/* Cartography page */
+
+.title {
+    position: relative;
+    text-transform: uppercase;
+    border-left: 5px solid #000;
+}
+
+.gallery-title {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.gallery img,
+.gallery video {
+    filter: brightness(0.5) grayscale(100);
+    transition: 0.2s ease-in-out;
+}
+
+.gallery:hover img,
+.gallery:hover video {
+    filter: brightness(1) grayscale(0);
+}
+
+.sl-overlay {
+    background-color: #505050 !important;
+}
