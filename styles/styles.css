@@ -10,6 +10,10 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+.active {
+    display: block;
+}
+
 .tracking-tight {
     color: whitesmoke;
 }

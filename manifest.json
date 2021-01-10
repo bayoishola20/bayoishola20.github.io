@@ -1,0 +1,19 @@
+{
+    "name": "bayoishola20",
+    "short_name": "bayoishola20",
+    "start_url": ".",
+    "background_color": "#E5E5E5",
+    "theme_color": "#565656",
+    "display": "standalone",
+    "icons": [{
+            "src": "assets/icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/icon512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

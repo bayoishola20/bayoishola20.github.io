@@ -6,11 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#565656">
     <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.6/tailwind.css" />
     <link href="/assets/icon.png" rel="icon">
     <link href="styles/styles.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icon.png">
     <script>
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -40,12 +43,16 @@
             <span class="font-sans text-xl tracking-tight">Adebayo Ishola</span>
         </div>
 
-        <input class="menu-btn hidden" type="checkbox" id="menu-btn">
-        <label class="menu-icon block cursor-pointer md:hidden px-2 py-4 relative select-none" for="menu-btn">
-          <span class="navicon bg-white flex items-center relative"></span>
-        </label>
+        <label for="menu-btn" class="pointer-cursor md:hidden block">
+            <svg class="fill-current text-gray-900"
+              xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+              <title>menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+          </label>
+        <input class="hidden" type="checkbox" id="menu-btn" />
 
-        <ul class="menu border-b md:border-none flex justify-end list-reset m-0 w-full md:w-auto">
+        <ul class="hidden md:flex flex-row menu border-b md:border-none justify-end list-reset m-0 w-full md:w-auto" id="mobileMenu">
             <li class="border-t md:border-none">
                 <a href="/" class="block md:inline-block mt-2 px-4 py-3 no-underline text-white hover:text-black">Home</a>
             </li>
@@ -154,6 +161,14 @@
 
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script>
+        let hamburger = document.getElementById('menu-btn');
+
+        let mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
+
         // skills
 
         skills = [
@@ -179,6 +194,7 @@
         }
     </script>
 
+    <script src="scripts/index.js"></script>
     <script src="scripts/script.js"></script>
 
 </body>
